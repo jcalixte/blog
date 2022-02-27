@@ -1,3 +1,5 @@
-import { defineConfig } from 'iles'
+import { defineConfig } from "iles";
 
-export default defineConfig({})
+export default defineConfig({
+  modules: ["@islands/headings"],
+});

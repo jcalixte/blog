@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="default">
     <header>
       <div class="wrapper">
         <div id="nav">
@@ -14,28 +14,18 @@
 </template>
 
 <style>
-@import "~/assets/base.css";
+@import "@/assets/base.css";
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-#nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-#nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+/* #nav a.router-link-exact-active {
+  background-color: var(--color-text);
+} */
 
 #nav a {
   display: inline-block;
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
 }
 
-#nav a:first-of-type {
-  border: 0;
+.default {
+  padding: 0 1rem;
 }
 </style>
