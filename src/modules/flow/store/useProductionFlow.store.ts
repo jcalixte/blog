@@ -1,3 +1,4 @@
+import { pinia } from "@/store/store";
 import { defineStore } from "pinia";
 
 interface Step {
@@ -20,7 +21,7 @@ const initialState: State = {
   ],
 };
 
-export const useProductionFlow = defineStore("production-flow", {
+const useStore = defineStore("production-flow", {
   state: () => ({ ...initialState }),
   actions: {
     addStep(step: Step) {
@@ -28,3 +29,5 @@ export const useProductionFlow = defineStore("production-flow", {
     },
   },
 });
+
+export const useProductionFlow = () => useStore(pinia);
