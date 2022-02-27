@@ -4,7 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Island: typeof import("./node_modules/.pnpm/iles@0.7.32/node_modules/iles/dist/client/app/components/Island.vue")["default"];
+    Island: typeof import('./node_modules/.pnpm/iles@0.7.32_sass@1.49.9/node_modules/iles/dist/client/app/components/Island.vue')['default']
     ProductionFlow: typeof import('./src/components/flow/ProductionFlow.vue')['default']
     Welcome: typeof import('./src/components/Welcome.vue')['default']
   }
