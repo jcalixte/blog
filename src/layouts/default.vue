@@ -2,6 +2,7 @@
   <div class="default">
     <header>
       <div class="wrapper">
+        <julien-calixte size="big" />
         <div id="nav">
           <router-link to="/">Home</router-link>
           <router-link to="/about">About</router-link>
@@ -27,5 +28,11 @@
 
 .default {
   padding: 0 1rem;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 </style>

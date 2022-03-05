@@ -5,7 +5,7 @@ const posts = usePosts();
 </script>
 
 <template>
-  <h1>Hi! I'm Julien. A mobile & web developer.</h1>
+  <h1>Hi! I'm <julien-calixte />. A mobile & web developer.</h1>
   <p>
     I am into building things with code. I love creating offline first
     Progressive Web Apps. I've been doing programmation for 5 years and lead
