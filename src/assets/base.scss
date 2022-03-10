@@ -20,7 +20,7 @@
   --vt-c-text-light-1: var(--vt-c-indigo);
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.9);
 }
 
 /* semantic color variables for this project */
@@ -36,9 +36,10 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+  --primary: hsl(229, 90%, 28%);
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--vt-c-black);
     --color-background-soft: var(--vt-c-black-soft);
@@ -49,8 +50,9 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
+    --primary: hsl(229, 100%, 80%);
   }
-} */
+}
 
 *,
 *::before,
@@ -69,8 +71,22 @@ body {
   line-height: 1.6;
   font-family: "Fenix", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
     serif;
-  font-size: 15px;
+  font-size: 22px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-variant: small-caps;
+  color: var(--primary);
 }
