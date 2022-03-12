@@ -1,5 +1,3 @@
-@import "@/assets/fonts";
-
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -88,4 +86,9 @@ h5,
 h6 {
   font-variant: small-caps;
   color: var(--primary);
+}
+
+.julien-calixte {
+  font-family: "Meow Script", "Lucida Sans", "Lucida Sans Regular",
+    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }

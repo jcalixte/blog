@@ -19,11 +19,7 @@ const style = `font-size: ${fontSize[props.size]}`;
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/fonts";
-
 .julien-calixte {
   font-variant: normal;
-  font-family: "Meow Script", "Lucida Sans", "Lucida Sans Regular",
-    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 </style>
