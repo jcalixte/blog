@@ -19,8 +19,6 @@ const style = `font-size: ${fontSize[props.size]}`;
 </template>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Meow+Script&display=swap");
-
 .julien-calixte {
   font-variant: normal;
   font-family: "Meow Script", cursive;
