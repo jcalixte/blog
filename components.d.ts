@@ -7,7 +7,7 @@ declare module 'vue' {
     AboutMe: typeof import('./src/components/presentation/AboutMe.vue')['default']
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
     BlogPosts: typeof import('./src/components/posts/BlogPosts.vue')['default']
-    Island: typeof import('./node_modules/.pnpm/iles@0.7.32_sass@1.49.9/node_modules/iles/dist/client/app/components/Island.vue')['default']
+    Island: typeof import('./node_modules/.pnpm/iles@0.7.38_sass@1.51.0/node_modules/iles/dist/client/app/components/Island.vue')['default']
     JulienCalixte: typeof import('./src/components/core/JulienCalixte.vue')['default']
     ProductionFlow: typeof import('./src/components/flow/ProductionFlow.vue')['default']
     Welcome: typeof import('./src/components/Welcome.vue')['default']
