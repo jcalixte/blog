@@ -66,7 +66,7 @@ body {
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: "Fenix", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+  font-family: "Gulzar", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
     serif;
   font-size: 22px;
   text-rendering: optimizeLegibility;
@@ -88,7 +88,18 @@ h6 {
   color: var(--primary);
 }
 
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
 .julien-calixte {
-  font-family: "Meow Script", "Lucida Sans", "Lucida Sans Regular",
-    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Meow Script", "Lucida Sans", "Lucida Sans Regular", Geneva, Verdana, sans-serif;
+}
+
+strong {
+  font-weight: bold;
 }

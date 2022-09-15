@@ -1,15 +1,14 @@
 {
-  "name": "iles-app",
-  "version": "0.0.0",
+  "name": "jcalixte-blog",
+  "version": "1.0.0",
   "scripts": {
     "dev": "iles dev",
     "build": "iles build",
     "preview": "iles preview --port 5050",
-    "test": "iles test",
     "typecheck": "vue-tsc --noEmit"
   },
   "engines": {
-    "node": "^14.18 || >= 16.0.0"
+    "node": ">= 16.0.0"
   },
   "devDependencies": {
     "@islands/headings": "^0.8.0",
