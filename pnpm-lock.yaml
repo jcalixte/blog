@@ -1,13 +1,13 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@islands/headings': ^0.8.0
+  '@islands/headings': ^0.8.1
   '@islands/prism': ^0.8.0
   iles: ^0.8.5
   pinia: ^2.0.22
-  sass: ^1.54.9
+  sass: ^1.55.0
   typescript: ^4.8.3
-  vitest: ^0.23.2
+  vitest: ^0.23.4
   vue: ^3.2.39
   vue-tsc: ^0.40.13
 
@@ -15,12 +15,12 @@ dependencies:
   pinia: 2.0.22_arz4dztosvwy2ghjrlh2wdhejm
 
 devDependencies:
-  '@islands/headings': 0.8.0
+  '@islands/headings': 0.8.1
   '@islands/prism': 0.8.0
-  iles: 0.8.5_sass@1.54.9
-  sass: 1.54.9
+  iles: 0.8.5_sass@1.55.0
+  sass: 1.55.0
   typescript: 4.8.3
-  vitest: 0.23.2_sass@1.54.9
+  vitest: 0.23.4_sass@1.55.0
   vue: 3.2.39
   vue-tsc: 0.40.13_typescript@4.8.3
 
@@ -64,8 +64,8 @@ packages:
     dev: true
     optional: true
 
-  /@islands/headings/0.8.0:
-    resolution: {integrity: sha512-z6ZkbZ4qkEmnr7OnsK3spCEYSvrl6KFKRy7v9elUJRObd/Glw3oncH7ra21J1gYlI4HWLYcOXSG3QdYIH4W8Ew==}
+  /@islands/headings/0.8.1:
+    resolution: {integrity: sha512-h9pe2w2vg8BaKeRdpe9blErr2sIIz3+HeTANpGB7WYMl+KV//8PhM2HdL8GeqFxDNZZnh7QAkWtJ7UecPHnzjw==}
     dependencies:
       hast-util-heading-rank: 2.1.0
       hast-util-to-string: 2.0.0
@@ -259,7 +259,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.1.1_sass@1.54.9
+      vite: 3.1.1_sass@1.55.0
       vue: 3.2.39
     dev: true
 
@@ -1133,7 +1133,7 @@ packages:
     engines: {node: '>=10.17.0'}
     dev: true
 
-  /iles/0.8.5_sass@1.54.9:
+  /iles/0.8.5_sass@1.55.0:
     resolution: {integrity: sha512-4ETrQU69KhyxRyR2P/OJdRSF7G79JRIcMeFYUNr60vuolebmqS8Uc6HDilvoZysy3zihZvN8HWLj3Kl4aaVv6g==}
     engines: {node: ^14.18 || >= 16.0.0}
     hasBin: true
@@ -1160,7 +1160,7 @@ packages:
       picocolors: 1.0.0
       unist-util-visit: 4.1.0
       unplugin-vue-components: 0.21.2_vite@3.1.1+vue@3.2.39
-      vite: 3.1.1_sass@1.54.9
+      vite: 3.1.1_sass@1.55.0
       vue: 3.2.39
       vue-router: 4.0.12_vue@3.2.39
     transitivePeerDependencies:
@@ -2137,8 +2137,8 @@ packages:
       mri: 1.2.0
     dev: true
 
-  /sass/1.54.9:
-    resolution: {integrity: sha512-xb1hjASzEH+0L0WI9oFjqhRi51t/gagWnxLiwUNMltA0Ab6jIDkAacgKiGYKM9Jhy109osM7woEEai6SXeJo5Q==}
+  /sass/1.55.0:
+    resolution: {integrity: sha512-Pk+PMy7OGLs9WaxZGJMn7S96dvlyVBwwtToX895WmCpAOr5YiJYEUJfiJidMuKb613z2xNWcXCHEuOvjZbqC6A==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
@@ -2434,7 +2434,7 @@ packages:
     dependencies:
       acorn: 8.8.0
       chokidar: 3.5.3
-      vite: 3.1.1_sass@1.54.9
+      vite: 3.1.1_sass@1.55.0
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.4
     dev: true
@@ -2466,7 +2466,7 @@ packages:
       vfile-message: 3.1.0
     dev: true
 
-  /vite/3.1.1_sass@1.54.9:
+  /vite/3.1.1_sass@1.55.0:
     resolution: {integrity: sha512-hgxQWev/AL7nWYrqByYo8nfcH9n97v6oFsta9+JX8h6cEkni7nHKP2kJleNYV2kcGhE8jsbaY1aStwPZXzPbgA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -2489,13 +2489,13 @@ packages:
       postcss: 8.4.16
       resolve: 1.22.1
       rollup: 2.78.1
-      sass: 1.54.9
+      sass: 1.55.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.23.2_sass@1.54.9:
-    resolution: {integrity: sha512-kTBKp3ROPDkYC+x2zWt4znkDtnT08W1FQ6ngRFuqxpBGNuNVS+eWZKfffr8y2JGvEzZ9EzMAOcNaiqMj/FZqMw==}
+  /vitest/0.23.4_sass@1.55.0:
+    resolution: {integrity: sha512-iukBNWqQAv8EKDBUNntspLp9SfpaVFbmzmM0sNcnTxASQZMzRw3PsM6DMlsHiI+I6GeO5/sYDg3ecpC+SNFLrQ==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -2526,7 +2526,7 @@ packages:
       tinybench: 2.1.5
       tinypool: 0.3.0
       tinyspy: 1.0.2
-      vite: 3.1.1_sass@1.54.9
+      vite: 3.1.1_sass@1.55.0
     transitivePeerDependencies:
       - less
       - sass
