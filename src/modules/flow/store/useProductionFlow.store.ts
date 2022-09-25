@@ -1,33 +1,37 @@
-import { pinia } from "@/store/store";
-import { defineStore } from "pinia";
+import { pinia } from "@/store/store"
+import { defineStore } from "pinia"
 
 interface Step {
-  name: string;
-  prerequisites: string[];
-  outputs: string[];
+  name: string
+  intention: string
+  responsible: string
+  prerequisites: string[]
+  outputs: string[]
 }
 
 interface State {
-  steps: Step[];
+  steps: Step[]
 }
 
 const initialState: State = {
   steps: [
     {
       name: "In production",
+      intention: "Deliver feature to the user",
+      responsible: "Product owner",
       prerequisites: [],
       outputs: ["Users can use the app"],
     },
   ],
-};
+}
 
 const useStore = defineStore("production-flow", {
   state: () => ({ ...initialState }),
   actions: {
     addStep(step: Step) {
-      this.$state.steps = [step, ...this.$state.steps];
+      this.$state.steps = [step, ...this.$state.steps]
     },
   },
-});
+})
 
-export const useProductionFlow = () => useStore(pinia);
+export const useProductionFlow = () => useStore(pinia)
