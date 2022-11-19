@@ -1,35 +1,41 @@
-import { computed } from "vue";
+import { computed } from "vue"
 
 interface Post {
-  filename: string;
-  lastUpdated: Date;
-  href: string;
-  title: string;
+  filename: string
+  lastUpdated: Date
+  href: string
+  title: string
+  date: Date
   meta: {
-    filename: string;
-    lastUpdated: Date;
-    href: string;
-  };
+    filename: string
+    lastUpdated: Date
+    href: string
+  }
   frontmatter: {
-    title: string;
-    publishedAt?: Date;
-  };
+    title: string
+    publishedAt?: Date
+  }
+  draft?: boolean
 }
 
-const byDate = (a: Post, b: Post) => {
-  if (!b.frontmatter.publishedAt) {
-    return -1;
+const byMostRecentFirst = (a: Post, b: Post) => {
+  if (!b.date) {
+    return 1
   }
 
-  if (!a.frontmatter.publishedAt) {
-    return 1;
+  if (!a.date) {
+    return 1
   }
 
-  return a.frontmatter.publishedAt <= b.frontmatter.publishedAt ? -1 : 1;
-};
+  return a.date <= b.date ? 1 : -1
+}
 
 export const usePosts = () => {
-  const posts = $(useDocuments<Post>("@/pages/posts"));
+  const posts = $(useDocuments<Post>("@/pages/posts"))
 
-  return computed(() => posts.sort(byDate));
-};
+  return computed(() =>
+    posts
+      .filter((post) => import.meta.env.DEV || post.draft !== true)
+      .sort(byMostRecentFirst)
+  )
+}
