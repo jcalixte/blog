@@ -1,6 +1,12 @@
+<script setup lang="ts">
+const { frontmatter } = usePage()
+</script>
+
 <template>
   <div class="post">
     <app-header />
+
+    <img id="main-illustration" v-if="frontmatter.illustration" :src="frontmatter.illustration" alt="Main illustration">
 
     <article id="main-article">
       <slot />
@@ -9,6 +15,11 @@
 </template>
 
 <style lang="scss">
+#main-illustration {
+  max-width: 100%;
+  object-fit: contain;
+}
+
 article#main-article {
   max-width: 680px;
   margin: auto;

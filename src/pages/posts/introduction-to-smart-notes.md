@@ -1,5 +1,6 @@
 ---
 title: Introduction to smart notes, how to take notes efficiently
+illustration: https://res.cloudinary.com/practicaldev/image/fetch/s--F-oPy0uT--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/s8t5g0o0h4x1ss6anr02.png
 layout: post
 date: 2021-12-16
 ---
@@ -29,7 +30,7 @@ In a nutshell, our brain is limited and quickly forgets the information it's bee
 
 #### Our cognitive biases
 
-Besides memory, brains aren't reliable because of many cognitive biases: confirmation bias, attentional bias, mere-exposure effect, normalcy bias, you name it. Even if it's the most complex system in our body, our brain must face many obstacles in order to not fool itself. For instance, more often than necessary, we look for arguments that unconsciously reinforce our original thoughts, we tend to argue with a pre-existing belief. This is what Julia Galef calls the “soldier mindset” in “[The Scout Mindset](https://juliagalef.com)”. She opposes it to the scout mindset: a mindset in which the search for the truth is what primarily guides its reasoning.
+Besides memory, brains aren't reliable because of many cognitive biases: confirmation bias, attentional bias, mere-exposure effect, normalcy bias, you name it. Even if it's the most complex system in our body, our brain must face many obstacles in order to not fool itself. For instance, more often than necessary, we look for arguments that unconsciously reinforce our original thoughts, we tend to argue with a pre-existing belief. This is what Julia Galef calls the "soldier mindset" in "[The Scout Mindset](https://juliagalef.com)". She opposes it to the scout mindset: a mindset in which the search for the truth is what primarily guides its reasoning.
 
 As the scout's goal is to draw the most accurate map in the battlefield, taking notes becomes the map for your thoughts: they tell you what you know, what you don't know and guide you through your reflection.
 
@@ -37,11 +38,11 @@ As the scout's goal is to draw the most accurate map in the battlefield, taking 
 
 ### Where do smart notes come from?
 
-Smart notes is a term used in the book “[How To Take Smart Notes](https://takesmartnotes.com)” written by Sönke Ahrens that tells the story of Niklas Luhmann, a sociologist who has published hundreds of articles thanks to his note-taking system: [the Zettelkasten method](https://zettelkasten.de/posts/overview).
+Smart notes is a term used in the book "[How To Take Smart Notes](https://takesmartnotes.com)" written by Sönke Ahrens that tells the story of Niklas Luhmann, a sociologist who has published hundreds of articles thanks to his note-taking system: [the Zettelkasten method](https://zettelkasten.de/posts/overview).
 
 ### Creating the system
 
-Taking notes tends to mean “jotting down ideas on paper during meetings”. But we rarely use them afterwards. Notes used once or twice are no good, we can’t take advantage of them. Note-taking without structure is pointless. That’s why we have to create a system where each note helps the system snowball effect.
+Taking notes tends to mean "jotting down ideas on paper during meetings". But we rarely use them afterwards. Notes used once or twice are no good, we can’t take advantage of them. Note-taking without structure is pointless. That’s why we have to create a system where each note helps the system snowball effect.
 
 We want a network of permanent notes. The goal is to write permanent notes and to densely connect them together. But to create notes you're proud of, you must iterate a few times with other kinds of notes. Overall, we can look at 3 kinds of notes:
 
@@ -87,7 +88,7 @@ It might feel uncomfortable.
 
 ![Is it me or is a 10 year old child writing this?](https://lh3.googleusercontent.com/T3W3kwKhU1lHsTouBixHVWog1DPju6HMaPp_UrSvA6jgWh_Cuii1I-cYbajvYu_DNf4ZLOH0ZRygyhd1x87u8blVhFD9JtSa3IcF3_7zUAcbrjBHElEnPzSQG5XBqH1KcJdfFAMS)
 
-“Is it me or is a 10 year old child writing this?”. Still the more you iterate, the better your notes become, I promise. 😊
+"Is it me or is a 10 year old child writing this?". Still the more you iterate, the better your notes become, I promise. 😊
 
 ### Smart notes are your first feedback loop
 

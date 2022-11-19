@@ -1,22 +1,5 @@
+import { Post } from "@/modules/post/entities/Post"
 import { computed } from "vue"
-
-interface Post {
-  filename: string
-  lastUpdated: Date
-  href: string
-  title: string
-  date: Date
-  meta: {
-    filename: string
-    lastUpdated: Date
-    href: string
-  }
-  frontmatter: {
-    title: string
-    publishedAt?: Date
-  }
-  draft?: boolean
-}
 
 const byMostRecentFirst = (a: Post, b: Post) => {
   if (!b.date) {
@@ -33,9 +16,5 @@ const byMostRecentFirst = (a: Post, b: Post) => {
 export const usePosts = () => {
   const posts = $(useDocuments<Post>("@/pages/posts"))
 
-  return computed(() =>
-    posts
-      .filter((post) => import.meta.env.DEV || post.draft !== true)
-      .sort(byMostRecentFirst)
-  )
+  return computed(() => posts.sort(byMostRecentFirst))
 }
