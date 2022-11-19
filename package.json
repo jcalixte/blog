@@ -21,6 +21,7 @@
     "vue-tsc": "^0.40.13"
   },
   "dependencies": {
+    "chart.xkcd": "^1.1.13",
     "pinia": "^2.0.24"
   }
 }
