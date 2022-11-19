@@ -40,6 +40,9 @@ h7 {
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
+  max-height: 40vh;
+  display: flex;
+  margin: auto;
 }
 </style>
