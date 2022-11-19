@@ -16,7 +16,6 @@ const { frontmatter } = usePage()
 
 <style lang="scss">
 #main-illustration {
-  max-width: 100%;
   object-fit: contain;
 }
 
@@ -38,5 +37,9 @@ h6,
 h7 {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+}
+
+img {
+  max-width: 100%;
 }
 </style>
