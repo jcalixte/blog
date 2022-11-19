@@ -10,7 +10,7 @@ declare module '@vue/runtime-core' {
     AboutMe: typeof import('./src/components/presentation/AboutMe.vue')['default']
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
     BlogPosts: typeof import('./src/components/posts/BlogPosts.vue')['default']
-    Island: typeof import('./node_modules/.pnpm/iles@0.8.5_sass@1.54.9/node_modules/iles/dist/client/app/components/Island.vue')['default']
+    Island: typeof import('./node_modules/.pnpm/iles@0.8.7_sass@1.56.1/node_modules/iles/dist/client/app/components/Island.vue')['default']
     JulienCalixte: typeof import('./src/components/core/JulienCalixte.vue')['default']
     ProductionFlow: typeof import('./src/components/flow/ProductionFlow.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
