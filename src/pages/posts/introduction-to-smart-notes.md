@@ -1,0 +1,119 @@
+---
+title: Introduction to smart notes, how to take notes efficiently
+layout: post
+date: 2021-12-16
+---
+
+
+# Introduction to smart notes, how to take notes efficiently
+
+If you are like me, then you struggled to take meaningful notes and usually give up on writing anything down. Still, deep down, you're looking for a way to write efficiently.
+
+## Why do you still have to write notes?
+
+How frustrating is it to read a book or get a new idea during a meeting, and a few days later realize you already forgot about it? You are not alone.
+
+### Our brains are not reliable
+
+#### The limits of our short-term memory
+
+Learning new things could be summarized as the process of linking items that are in our short-term memory to our long-term memory, by far more efficient and reliable. Short-term memory is really convenient to retrieve information quickly. Unfortunately, our short-term memory is extremely limited: it's quickly crowded—[4 (± 1) blocks of information at a time](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/magical-number-4-in-shortterm-memory-a-reconsideration-of-mental-storage-capacity/44023F1147D4A1D44BDC0AD226838496)—and very short-lived. It isn’t suitable for complex reflection.
+
+![short-term and long-term memories](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2g5gf0cspgd1mvkxaskm.png)
+
+To make it even worse, the following curve shows how information is quickly lost over time when there is no attempt to retain it. That’s why we tend to retrieve so little information from a book read months ago. It's called the forgetting curve.
+
+![the forgetting curve](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d02a5yl5c20g8aat7rgk.png)
+
+In a nutshell, our brain is limited and quickly forgets the information it's been exposed to.
+
+#### Our cognitive biases
+
+Besides memory, brains aren't reliable because of many cognitive biases: confirmation bias, attentional bias, mere-exposure effect, normalcy bias, you name it. Even if it's the most complex system in our body, our brain must face many obstacles in order to not fool itself. For instance, more often than necessary, we look for arguments that unconsciously reinforce our original thoughts, we tend to argue with a pre-existing belief. This is what Julia Galef calls the “soldier mindset” in “[The Scout Mindset](https://juliagalef.com)”. She opposes it to the scout mindset: a mindset in which the search for the truth is what primarily guides its reasoning.
+
+As the scout's goal is to draw the most accurate map in the battlefield, taking notes becomes the map for your thoughts: they tell you what you know, what you don't know and guide you through your reflection.
+
+## The concept of *smart notes*
+
+### Where do smart notes come from?
+
+Smart notes is a term used in the book “[How To Take Smart Notes](https://takesmartnotes.com)” written by Sönke Ahrens that tells the story of Niklas Luhmann, a sociologist who has published hundreds of articles thanks to his note-taking system: [the Zettelkasten method](https://zettelkasten.de/posts/overview).
+
+### Creating the system
+
+Taking notes tends to mean “jotting down ideas on paper during meetings”. But we rarely use them afterwards. Notes used once or twice are no good, we can’t take advantage of them. Note-taking without structure is pointless. That’s why we have to create a system where each note helps the system snowball effect.
+
+We want a network of permanent notes. The goal is to write permanent notes and to densely connect them together. But to create notes you're proud of, you must iterate a few times with other kinds of notes. Overall, we can look at 3 kinds of notes:
+
+- fleeting notes,
+- literature notes,
+- permanent notes.
+
+#### Fleeting notes
+
+*Fleeting notes* are your day-to-day notes. When an idea pops into your head or you find an idea interesting in a meeting, you want to write it to free your mental load. They are primarily the pool of new concepts.
+
+Then comes the refinement of the notes. For this, you need to instigate a routine: clearing and deleting non-relevant paragraphs, extracting the ideas into concise notes. This routine is key to accumulate knowledge.
+
+I suggest getting a note per day and starting the routine at a small scale: create a fleeting note each day but refine them only once a week.
+
+#### Literature notes
+
+*Literature notes* are the notes you take on the fly when you are reading a book, a blog post or listening to a podcast. With a pen and a paper next to you, you write with your own words your understanding of the read. The key feature here is that we want a much more active lecture and information consumption than just passive reading/listening. It may seem hard at first but once you incorporate this new habit, you feel almost disappointed reading without extracting what seems compelling.
+
+#### Permanent notes
+
+*Permanent notes* are atomic and connected. A permanent note is about one and only one concept, as simple as possible and connected with others. They come from the selected thoughts chosen from your fleeting and literature notes. They are the backbone of the system so you want to be extremely selective about what will become a good durable note.
+
+When creating a permanent note, scan your previous notes and find connections with the new one. It’s the rule: the only way a permanent note can integrate the system is from connections.
+
+### Improve yourself step by step
+
+We want the system to work like our brain: simple ideas linked together as a network of thoughts. We want to start small, one note at a time.
+
+Your notes don't need to be perfect straight away, in fact, they will never be. Because writing is hard.
+
+Actually, writing is a multiple-tasking process:
+
+- writing ideas on the go,
+- extracting relevant information,
+- criticizing,
+- making the writing shorter and the concept clearer,
+- rewriting and rewriting again…
+
+We want to separate these different tasks as much as possible because they can inhibit each other. When you write, don’t be afraid of being weird or dumb, there will be a time for self-critic. For now just write as if  you were teaching it to your younger self.
+
+It might feel uncomfortable.
+
+![Is it me or is a 10 year old child writing this?](https://lh3.googleusercontent.com/T3W3kwKhU1lHsTouBixHVWog1DPju6HMaPp_UrSvA6jgWh_Cuii1I-cYbajvYu_DNf4ZLOH0ZRygyhd1x87u8blVhFD9JtSa3IcF3_7zUAcbrjBHElEnPzSQG5XBqH1KcJdfFAMS)
+
+“Is it me or is a 10 year old child writing this?”. Still the more you iterate, the better your notes become, I promise. 😊
+
+### Smart notes are your first feedback loop
+
+This is where it gets exciting. Since you know you will be able to review your notes by yourself, you become better and better at writing and therefore your way of thinking. Notes are the medium between your past, present and future self. Plus, if you become comfortable with your own critique, you'll find yourself accepting even more the challenges of others as you simply want to improve your system.
+
+### How smart notes benefit me
+
+I’ve been using this system for the past year and so far it works!
+
+Here is a non-exhaustive list of things I like about it:
+
+- 📝 I can write a blog post—like this one–just by picking ideas from my own notes: no more blank page syndrome,
+- 🧠 trusting one and only one system allows the brain to truly free itself from mental load: you know you can go back to your thoughts and ideas later,
+- 🕸 making connections between work, hobbies and entertainment create new ideas in a way I didn't expect, I feel more creative!
+- 📈 as I said earlier, I’m much more incline to face challenges from other people and ask colleagues how I can improve my work,
+- 🪴 watching your network grow is rewarding! It’s like taking care of your own little garden.
+
+As great as it is, I want to warn you about a few pitfalls into which you could be tempted to fall:
+
+- [collecting](https://zettelkasten.de/posts/collectors-fallacy) only for the sake of collecting isn’t helpful. [We don’t need it.](https://observer.com/2017/05/the-collectors-fallacy-why-we-gather-things-we-dont-need)
+- creating a system per project: we lose the essence of the system; we want to be able to connect notes that don't seem connected at first sight.
+- thinking too much of the tree structure for your notes in your taking note app: it is not that important, we just want to look for notes easily,
+- copying and pasting what we find on the internet: link the page you want to reference but if the notes are not your own, the system becomes irrelevant (and I quote [CGP Grey](https://youtu.be/wf2VxeIm1no?t=493): *"If your mind is forever filled with the voice of others, how do you know what you think about anything?"*).
+
+With all this in mind, I made [a personal slip-box](https://litenote.space/lite-note/example) I'll be completing over time to let you explore concrete examples!
+
+## Introducing smart notes for others
+
+I’m currently wondering if there are other potential applications to the Zettelkasten method other than using it ourselves. At BAM, I work as a team leader and I constantly ask myself how we can improve our way of communication through time in projects. Just like [visual management](https://dev.to/jcalixte/how-does-visual-management-improve-team-efficiency-4kgd), good documentation is essential for a project to succeed. Having clear standards connected to more detailed concepts is the ultimate documentation! But I haven’t fully experienced it yet.
