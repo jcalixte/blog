@@ -7,11 +7,8 @@ const posts = usePosts();
 <template>
   <div class="blog-posts">
     <h2>Last posts</h2>
-    <div v-for="post in posts" :key="post.href">
-      <h3>
-        - <a :href="post.href">{{ post.title }}</a>
-      </h3>
-    </div>
+    <h3 v-for="post in posts" :key="post.href">
+      - <a :href="post.href">{{ post.title }}</a>
+    </h3>
   </div>
 </template>
-
