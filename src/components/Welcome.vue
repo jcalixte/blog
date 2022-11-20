@@ -5,6 +5,10 @@
     <about-me />
 
     <blog-posts />
+
+    <my-projects />
+
+    <my-books />
   </section>
 </template>
 
