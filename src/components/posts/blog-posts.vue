@@ -9,16 +9,9 @@ const posts = usePosts();
     <h2>Last posts</h2>
     <div v-for="post in posts" :key="post.href">
       <h3>
-        <a :href="post.href">{{ post.title }}</a>
+        - <a :href="post.href">{{ post.title }}</a>
       </h3>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-.blog-posts {
-  h3 {
-    font-weight: bold;
-  }
-}
-</style>
