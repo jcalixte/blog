@@ -7,12 +7,14 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    AboutMe: typeof import('./src/components/presentation/AboutMe.vue')['default']
-    AppHeader: typeof import('./src/components/AppHeader.vue')['default']
-    BlogPosts: typeof import('./src/components/posts/BlogPosts.vue')['default']
+    AboutMe: typeof import('./src/components/presentation/about-me.vue')['default']
+    AppHeader: typeof import('./src/components/app-header.vue')['default']
+    BlogPosts: typeof import('./src/components/posts/blog-posts.vue')['default']
     ForgettingCurve: typeof import('./src/components/smart-notes/forgetting-curve.vue')['default']
     Island: typeof import('./node_modules/.pnpm/iles@0.8.7_sass@1.56.1/node_modules/iles/dist/client/app/components/Island.vue')['default']
-    JulienCalixte: typeof import('./src/components/core/JulienCalixte.vue')['default']
+    JulienCalixte: typeof import('./src/components/core/julien-calixte.vue')['default']
+    MyBooks: typeof import('./src/components/presentation/my-books.vue')['default']
+    MyProjects: typeof import('./src/components/presentation/my-projects.vue')['default']
     ProductionFlow: typeof import('./src/components/flow/ProductionFlow.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
