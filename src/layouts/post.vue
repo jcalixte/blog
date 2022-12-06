@@ -23,6 +23,7 @@ article#main-article {
   max-width: 680px;
   margin: auto;
   padding: 1rem;
+  text-align: justify;
 }
 
 h1 {
