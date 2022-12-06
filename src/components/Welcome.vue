@@ -5,6 +5,10 @@
     <about-me />
 
     <blog-posts />
+
+    <my-projects />
+
+    <my-books />
   </section>
 </template>
 
@@ -12,5 +16,6 @@
 .welcome {
   max-width: 800px;
   margin: auto;
+  padding: 1rem;
 }
 </style>

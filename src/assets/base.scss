@@ -1,3 +1,5 @@
+@import "prism.theme";
+
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -56,7 +58,6 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  position: relative;
   font-weight: normal;
 }
 
@@ -84,7 +85,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-variant: small-caps;
   color: var(--primary);
 }
 
@@ -97,7 +97,8 @@ h2 {
 }
 
 .julien-calixte {
-  font-family: "Meow Script", "Lucida Sans", "Lucida Sans Regular", Geneva, Verdana, sans-serif;
+  font-family: "Meow Script", "Lucida Sans", "Lucida Sans Regular", Geneva,
+    Verdana, sans-serif;
 }
 
 strong {
