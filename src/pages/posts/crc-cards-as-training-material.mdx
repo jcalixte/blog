@@ -11,6 +11,8 @@ CRC Card: **C**lass name, **R**esponsibilities, **C**ollaborators.
 
 [CRC Cards](https://en.wikipedia.org/wiki/Class-responsibility-collaboration_card) are a teaching tool on how to design software. They were proposed by Kent Beck and Ward Cunningham, and, hell yeah it's useful.
 
+<CrcCard name="Component name" responsabilities={["First responsability", "second responsability"]} collaborators={["First collaborator", "second collaborator"]} />
+
 When I'm talking with tech leaders, my goal is to sharpen our vision about the software we are working on. When developers implemente features, I often see responsability leaks: the feature works, but the component are hard to read, hard to reuse and we pile up technical debt too quickly.
 
 CRC cards are a great tool to focus the discussion and to aknowledge the fact that the developer shared her global vision to each individual local component who must rely only on its local scope. Let's take an example of one discussion.
@@ -19,7 +21,7 @@ CRC cards are a great tool to focus the discussion and to aknowledge the fact th
 
 Disclaimer: we're about to look at a very ugly code that is definetely doing too many things. The purpose of the discussion I have is to show to the tech lead that we really want to prevent this to happen and it is her mission to standardize it with her team.
 
-Let's say we have a `UserBookmarks` component. Its role is to display a list of bookmarks the user saved.
+Let's say we have a `UserBookmarks` component.
 
 ```tsx
 interface Props {
@@ -60,10 +62,23 @@ export const UserBookmarks: FunctionComponent<Props> = ({ user }) => {
       setIsLoading(false)
     }
   }
+
+  const tilesAnimation = gsap.to({
+    duration: 0.8,
+    opacity: 0.35,
+    yoyo: true,
+    repeat: -1,
+    stagger: 0.025,
+  })
   
   return <div className="user-bookmarks">
     <Title title={strings['frontoffice.bookmark.user_bookmarks']} />
-    {toolList}
+    {isLoading
+      ? <TilesSkeleton animation={tilesAnimation} numberOfTiles={16} />
+      : <BookmarkItem
+        key={bookmark.id}
+        data={bookmark}
+      />}
 
     <PrimaryButton
       text={strings['frontoffice.bookmark.all_bookmarks']}
@@ -75,140 +90,19 @@ export const UserBookmarks: FunctionComponent<Props> = ({ user }) => {
     <AddBookmarkModal
       visible={showAddBookmarkModal}
       onClose={() => setShowAddBookmarkModal(false)}
-      tools={availableCustomTools}
+      bookmarks={bookmarks}
       onBookmarkAdd={addBookmarkToUser}
     />
   </div>
 }
-
 ```
 
-```tsx
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { gsap } from 'gsap';
-import differenceBy from 'lodash/differenceBy';
-import React, { useCallback, useEffect, useState } from 'react';
+It's a reeeeeeally long component that does many things, (FYI it is a simplified version of a component in one of my project). Most of the time, the tech lead freezes seeing how many things we need to talk to. Let's break it down piece by piece.
 
-import { PrimaryButton } from 'components/CustomButton/CustomButton';
-import strings from 'components/Localization/Localisation';
-import { Title } from 'components/Title/Title';
-import { useLanguageContext } from 'context/LanguageContext';
-import {
-  addToolToUser,
-  fetchToolsForUser,
-  removeToolFromUser,
-} from 'data/actions/ToolActions';
-import { CodeIso } from 'types/Language';
-import { Tool } from 'types/Tool';
-import { Tools } from 'types/Tools';
-import { Ui } from 'types/Ui';
-import { User } from 'types/User';
+## Inputs and output
 
-import AddToolModal from './AddToolModal/AddToolModal';
-import { TilesSkeleton } from './TilesSkeleton';
-import { ToolItem } from './Tool/ToolItem';
+The `UserBookmarks` component takes a `user` prop and return a list of styled bookmarks with the possibility to add bookmark via a modal.
 
-export const Toolbox: React.FC = ({
-  user,
-  ui,
-  customTools,
-  userTools,
-  indispensableTools,
-  userIsUpdating,
-  getToolData,
-  addToolToUser,
-  removeToolFromUser,
-}) => {
-  const { language } = useLanguageContext();
+Cool! That's the first thing we can note on our CRC card.
 
-  const [showAddToolModal, setShowAddToolModal] = useState(false);
-  const [showDeleteTool, setShowDeleteTool] = useState(false);
-
-  const [tileAnimation, setTileAnimation] = useState<GSAPTween>();
-  const [fakeTiles, setFakeTiles] = useState<unknown[]>([]);
-
-  const [toolList, setToolList] = useState<JSX.Element>();
-
-  const userId = user['@id'];
-  const uiLoading = ui.loading;
-
-  const availableCustomTools = differenceBy(customTools, userTools, '@id');
-
-  const startLoadAnimation = (): void => {
-    setTileAnimation(
-      gsap.to(fakeTiles, {
-        duration: 0.8,
-        opacity: 0.35,
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.025,
-      }),
-    );
-  };
-
-  const stopLoadingAnimation = useCallback((): void => {
-    tileAnimation?.kill();
-  }, [tileAnimation]);
-
-  const addBookmark = (): void => {
-    setShowAddToolModal(true);
-    setShowDeleteTool(false);
-  };
-
-  useEffect(() => {
-    startLoadAnimation();
-    if (userId) {
-      getToolData(user, language);
-    }
-  }, [userId, language]);
-
-  useEffect(() => {
-    if (!uiLoading) {
-      stopLoadingAnimation();
-      setToolList(
-        <div className="tool-list">
-          {indispensableTools.map(tool => (
-            <ToolItem key={tool['@id']} data={tool} showDeleteButton={false} />
-          ))}
-
-          {userTools.map(tool => (
-            <ToolItem
-              key={tool['@id']}
-              data={tool}
-              showDeleteButton={showDeleteTool}
-              onDelete={() => removeToolFromUser(tool)}
-            />
-          ))}
-
-        </div>,
-      );
-    } else {
-      setToolList(<TilesSkeleton setFakeTiles={setFakeTiles} numberOfTiles={16} />);
-    }
-  }, [uiLoading]);
-
-  return (
-    <div className="Toolbox">
-      <Title title={strings['frontoffice.toolbox.my_tools']} />
-      {toolList}
-
-      <PrimaryButton
-        text={strings['frontoffice.toolbox.all_apps']}
-        onClick={addBookmark}
-        alt={'see all apps button'}
-        image={<FontAwesomeIcon icon={['fas', 'arrow-right']} color="white" />}
-        positionOfImage="right"
-        disabled={true}
-      />
-
-      <AddToolModal
-        visible={showAddToolModal}
-        onClose={() => setShowAddToolModal(false)}
-        tools={availableCustomTools}
-        onToolAdd={addToolToUser}
-        userIsUpdating={userIsUpdating}
-      />
-    </div>
-  );
-};
-```
+<CrcCard name="UserBookmarks" responsabilities={["Display user bookmarks"]} collaborators={["Home.tsx"]} />
