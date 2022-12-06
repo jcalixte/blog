@@ -11,7 +11,7 @@ export default defineApp({
       link: [
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Gulzar&family=Meow+Script&family=Cousine&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Gulzar&family=Meow+Script&family=Oxygen+Mono&display=swap",
         },
       ],
     }
