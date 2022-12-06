@@ -9,9 +9,13 @@ draft: true
 
 CRC Card: **C**lass name, **R**esponsibilities, **C**ollaborators.
 
-[CRC Cards](https://en.wikipedia.org/wiki/Class-responsibility-collaboration_card) are a teaching tool on how to design software. They were proposed by Kent Beck and Ward Cunningham, and, hell yeah it's useful.
+[CRC Cards](https://en.wikipedia.org/wiki/Class-responsibility-collaboration_card) are a teaching tool on how to design software. They were proposed by [Kent Beck](https://www.kentbeck.com) and [Ward Cunningham](https://en.wikipedia.org/wiki/Ward_Cunningham), and, hell yeah it's useful.
 
-<CrcCard name="Component name" responsabilities={["First responsability", "second responsability"]} collaborators={["First collaborator", "second collaborator"]} />
+<CrcCard
+  name="Component name"
+  responsabilities={["First responsability", "second responsability"]}
+  collaborators={["First collaborator", "second collaborator"]}
+/>
 
 When I'm talking with tech leaders, my goal is to sharpen our vision about the software we are working on. When developers implemente features, I often see responsability leaks: the feature works, but the component are hard to read, hard to reuse and we pile up technical debt too quickly.
 
@@ -19,7 +23,9 @@ CRC cards are a great tool to focus the discussion and to aknowledge the fact th
 
 ## The horrible `UserBookmarks` component 😨
 
-Disclaimer: we're about to look at a very ugly code that is definetely doing too many things. The purpose of the discussion I have is to show to the tech lead that we really want to prevent this to happen and it is her mission to standardize it with her team.
+Disclaimer: we're about to look at a very ugly code that is definetely doing too many things, (FYI it is a simplified version of a component in one of my project). The purpose of the discussion I have is to show to the tech lead that we really want to prevent this to happen and it is her mission to standardize it with her team.
+
+As the code does too many things, it can be hard to follow this post, but, I'll try my best to take you with me on this journey.
 
 Let's say we have a `UserBookmarks` component.
 
@@ -70,7 +76,7 @@ export const UserBookmarks: FunctionComponent<Props> = ({ user }) => {
     repeat: -1,
     stagger: 0.025,
   })
-  
+
   return <div className="user-bookmarks">
     <Title title={strings['frontoffice.bookmark.user_bookmarks']} />
     {isLoading
@@ -97,12 +103,116 @@ export const UserBookmarks: FunctionComponent<Props> = ({ user }) => {
 }
 ```
 
-It's a reeeeeeally long component that does many things, (FYI it is a simplified version of a component in one of my project). Most of the time, the tech lead freezes seeing how many things we need to talk to. Let's break it down piece by piece.
+It's a reeeeeeally long component that does many things. Most of the time, the tech lead freezes seeing how many things we need to talk to. Let's break it down piece by piece.
+
+## The name
+
+The easiest part: it has a name, maybe it's not perfect but `UserBookmarks` make sense for me. Let's create its CRC card knowing that the only code calling it is the main page.
+
+<CrcCard name="UserBookmarks" collaborators={["Home.tsx"]} />
+
+That's a start!
 
 ## Inputs and output
 
-The `UserBookmarks` component takes a `user` prop and return a list of styled bookmarks with the possibility to add bookmark via a modal.
+The `UserBookmarks` component takes a `user` prop and return a list of styled bookmarks with the possibility to add bookmark via a modal. I'll say something positive about this component, it's that it is pretty convenient for the parent calling it, just pass it the user, it'll give you all the user bookmarks and more. Maybe too much.
 
-Cool! That's the first thing we can note on our CRC card.
+But hey! We can already note the first responsability on our CRC card.
 
-<CrcCard name="UserBookmarks" responsabilities={["Display user bookmarks"]} collaborators={["Home.tsx"]} />
+<CrcCard
+  name="UserBookmarks"
+  responsabilities={["Display user bookmarks"]}
+  collaborators={["Home.tsx"]}
+/>
+
+As we are talking about inputs, I want to know how the props are used. Are they necessary? Are they sufficient? Here we can see that `user` is only used for fetching data:
+
+```ts
+...
+const userBookmark = await fetch(`/users/${user.id}/bookmarks`, {
+...
+```
+
+Only the `user id` is necessary, why not just give the userId instead of the whole object?
+
+> Here is a classic responsibility leak I frequentely see. Components don't care that user have a `user.address.line1` property when they only want their `id`.
+
+That will be our first simplification.
+
+```tsx
+interface Props {
+  userId: number
+}
+
+export const UserBookmarks: FunctionComponent<Props> = ({ userID }) => {
+  const [bookmarks, setBookmarks] = useState<Bookmark[]>([])
+  const [showAddBookmarkModal, setShowAddBookmarkModal] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    setIsLoading(true)
+
+    try {
+      const userBookmark = await fetch(`/users/${userId}/bookmarks`, {
+        method: 'GET'
+      })
+      setBookmarks(userBookmarks)
+    } catch (error) {
+      setBookmarks([])
+    } finally {
+      setIsLoading(false)
+    }
+  }, [])
+
+  const addBookmarkToUser = async ({ bookmark }) => {
+    setIsLoading(true)
+    try {
+      const newBookmark = await fetch(`/users/${userId}/bookmarks`, {
+        method: 'POST',
+        body: JSON.stringify({ bookmark })
+      })
+      setBookmarks([...bookmarks, newBookmark])
+    } catch (error) {
+      console.warn(error);
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const tilesAnimation = gsap.to({
+    duration: 0.8,
+    opacity: 0.35,
+    yoyo: true,
+    repeat: -1,
+    stagger: 0.025,
+  })
+
+  return <div className="user-bookmarks">
+    <Title title={strings['frontoffice.bookmark.user_bookmarks']} />
+    {isLoading
+      ? <TilesSkeleton animation={tilesAnimation} numberOfTiles={16} />
+      : <BookmarkItem
+        key={bookmark.id}
+        data={bookmark}
+      />}
+
+    <PrimaryButton
+      text={strings['frontoffice.bookmark.all_bookmarks']}
+      onClick={() => setShowAddBookmarkModal(true))}
+      alt={'strings['frontoffice.bookmark.add_bookmarks']'}
+      image={<FontAwesomeIcon icon={['fas', 'plus']} color="white" />}
+    />
+
+    <AddBookmarkModal
+      visible={showAddBookmarkModal}
+      onClose={() => setShowAddBookmarkModal(false)}
+      bookmarks={bookmarks}
+      onBookmarkAdd={addBookmarkToUser}
+    />
+  </div>
+}
+```
+
+## The secret sauce
+
+Now comes where we'll definetely challenge how the component does its magic.
