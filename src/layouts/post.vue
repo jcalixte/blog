@@ -40,10 +40,6 @@ h7 {
   margin-bottom: 0.5rem;
 }
 
-p {
-  margin-bottom: 1rem;
-}
-
 img {
   width: 100%;
   max-height: 40vh;

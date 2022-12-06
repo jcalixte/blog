@@ -81,6 +81,15 @@ a {
   color: var(--color-text);
 }
 
+p,
+blockquote {
+  margin-bottom: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -109,4 +118,11 @@ strong {
 
 code {
   font-family: var(--code-font-family);
+  font-size: 16px;
+}
+
+blockquote {
+  padding: 2rem;
+  border-radius: 0.3em;
+  background-color: #574b90;
 }

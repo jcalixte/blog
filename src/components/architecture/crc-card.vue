@@ -41,7 +41,7 @@ withDefaults(defineProps<Props>(), {
   background-color: #561b00;
   padding: 1rem;
   margin: 1rem 0;
-  border-radius: 15px;
+  border-radius: 0.3em;
   font-family: var(--code-font-family);
 
   hr {
