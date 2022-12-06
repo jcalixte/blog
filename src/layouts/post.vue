@@ -20,7 +20,7 @@ const { frontmatter } = usePage()
 }
 
 article#main-article {
-  max-width: 680px;
+  max-width: 740px;
   margin: auto;
   padding: 1rem;
   text-align: justify;
@@ -38,6 +38,10 @@ h6,
 h7 {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 img {

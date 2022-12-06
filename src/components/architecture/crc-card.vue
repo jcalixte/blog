@@ -42,7 +42,7 @@ withDefaults(defineProps<Props>(), {
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 15px;
-  font-family: 'Cousine', monospace;
+  font-family: var(--code-font-family);
 
   hr {
     margin-bottom: 1rem;
