@@ -35,8 +35,8 @@ interface Props {
 }
 
 export const UserBookmarks: FunctionComponent<Props> = ({ user }) => {
-  const [bookmarks, setBookmarks] = useState<Bookmark[]>([])
   const [showAddBookmarkModal, setShowAddBookmarkModal] = useState(false)
+  const [bookmarks, setBookmarks] = useState<Bookmark[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
@@ -159,3 +159,60 @@ export const UserBookmarks: FunctionComponent<Props> = ({ userId }) => {
 ## The secret sauce
 
 Now comes where we'll challenge how the component does its magic.
+
+### Tell me about your hooks, I'll tell you who you are
+
+Without being a rule of thumb, I like to count how many `use` there are in the component, it gives me good approximation about how many responsibilities lies.
+
+1. `const [showAddBookmarkModal, setShowAddBookmarkModal] = useState(false)`
+2. `const [bookmarks, setBookmarks] = useState<Bookmark[]>([])`
+3. `const [isLoading, setIsLoading] = useState(false)`
+4. `useEffect(() => {`
+
+4 hooks, is it too many? too few? I guess it depends but here we can see there are 3 hooks managing fetching the data and one handling the modal for adding a bookmark. We can update our CRC Card.
+
+<CrcCard
+  name="UserBookmarks"
+  responsabilities={[
+    "Display user bookmarks",
+    "fetching bookmarks",
+    "handling async processes",
+    "handling add bookmark modal visibility",
+  ]}
+  collaborators={["Home.tsx"]}
+/>
+
+### The ugly responsability
+
+The main problem I see in the `UserBookmarks` component is not about the component itself, it's more on one of its children: `TilesSkeleton`. It's doing a good job for the user experience but it's asking too much for the parent to be able to use it: `UserBookmarks` doesn't care about animating the skeleton.
+
+```tsx
+const tilesAnimation = gsap.to({
+  duration: 0.8,
+  opacity: 0.35,
+  yoyo: true,
+  repeat: -1,
+  stagger: 0.025,
+})
+// ...
+<TilesSkeleton animation={tilesAnimation} numberOfTiles={16} />
+```
+
+<CrcCard
+  name="UserBookmarks"
+  responsabilities={[
+    "Display user bookmarks",
+    "fetching bookmarks",
+    "handling async processes",
+    "handling add bookmark modal visibility",
+    "⚠️ Defining TilesSkeleton animation",
+  ]}
+  collaborators={["Home.tsx"]}
+/>
+
+It must become
+
+```tsx
+// removing the magic number at the same time
+<TilesSkeleton numberOfTiles={MAXIMUM_BOOKMARKS} />
+```

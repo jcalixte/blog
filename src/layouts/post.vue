@@ -24,6 +24,10 @@ article#main-article {
   margin: auto;
   padding: 1rem;
   text-align: justify;
+
+  li {
+    text-align: left;
+  }
 }
 
 h1 {
