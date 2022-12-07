@@ -4,7 +4,7 @@
   <header class="app-header">
     <div class="wrapper">
       <router-link to="/" class="logo">
-        <julien-calixte size="big" />
+        <toucan-icon />
       </router-link>
     </div>
   </header>
@@ -16,7 +16,7 @@
 } */
 
 .app-header {
-  padding: 0 1rem;
+  padding: 0.2rem;
 
   .wrapper {
     display: flex;

@@ -19,9 +19,7 @@ const style = `font-size: ${fontSize[props.size]}`
 </script>
 
 <template>
-  <span class="julien-calixte" :style="style"
-    >Julien<template v-if="version === 'full'"> Calixte</template></span
-  >
+  <span class="julien-calixte" :style="style">Julien<template v-if="version === 'full'"> Calixte</template></span>
 </template>
 
 <style scoped lang="scss">
