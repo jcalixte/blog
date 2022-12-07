@@ -78,18 +78,17 @@ export const UserBookmarks: FunctionComponent<Props> = ({ user }) => {
   })
 
   return <div className="user-bookmarks">
-    <Title title={strings['frontoffice.bookmark.user_bookmarks']} />
+    <Title title={i18n('bookmark.user_bookmarks')} />
     {isLoading
       ? <TilesSkeleton animation={tilesAnimation} numberOfTiles={16} />
       : <BookmarkItem
-        key={bookmark.id}
-        data={bookmark}
-      />}
+          key={bookmark.id}
+          data={bookmark}
+        />}
 
     <PrimaryButton
-      text={strings['frontoffice.bookmark.all_bookmarks']}
+      text={i18n('bookmark.add_bookmark')}
       onClick={() => setShowAddBookmarkModal(true))}
-      alt={'strings['frontoffice.bookmark.add_bookmarks']'}
       image={<FontAwesomeIcon icon={['fas', 'plus']} color="white" />}
     />
 
@@ -128,91 +127,35 @@ But hey! We can already note the first responsability on our CRC card.
 As we are talking about inputs, I want to know how the props are used. Are they necessary? Are they sufficient? Here we can see that `user` is only used for fetching data:
 
 ```ts
-...
+// ...
 const userBookmark = await fetch(`/users/${user.id}/bookmarks`, {
-...
+// ...
+const newBookmark = await fetch(`/users/${user.id}/bookmarks`, {
+// ...
 ```
 
-Only the `user id` is necessary, why not just give the userId instead of the whole object?
+Only the `user id` is necessary, why not just give the user id instead of the whole object? That will be our first simplification.
 
-> Here is a classic responsibility leak I frequentely see. Components don't care that user have a `user.address.line1` property when they only want their `id`.
-
-That will be our first simplification.
+> Here is a classic responsibility leak I frequentely see. When you're developing a feature, you have the big picture but `UserBookmarks` and its local knowledge don't care about the user having a `user.address.line1` property.
 
 ```tsx
 interface Props {
   userId: number
 }
 
-export const UserBookmarks: FunctionComponent<Props> = ({ userID }) => {
-  const [bookmarks, setBookmarks] = useState<Bookmark[]>([])
-  const [showAddBookmarkModal, setShowAddBookmarkModal] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    setIsLoading(true)
-
-    try {
+export const UserBookmarks: FunctionComponent<Props> = ({ userId }) => {
+// ...
       const userBookmark = await fetch(`/users/${userId}/bookmarks`, {
         method: 'GET'
       })
-      setBookmarks(userBookmarks)
-    } catch (error) {
-      setBookmarks([])
-    } finally {
-      setIsLoading(false)
-    }
-  }, [])
-
-  const addBookmarkToUser = async ({ bookmark }) => {
-    setIsLoading(true)
-    try {
+// ...
       const newBookmark = await fetch(`/users/${userId}/bookmarks`, {
         method: 'POST',
         body: JSON.stringify({ bookmark })
       })
-      setBookmarks([...bookmarks, newBookmark])
-    } catch (error) {
-      console.warn(error);
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  const tilesAnimation = gsap.to({
-    duration: 0.8,
-    opacity: 0.35,
-    yoyo: true,
-    repeat: -1,
-    stagger: 0.025,
-  })
-
-  return <div className="user-bookmarks">
-    <Title title={strings['frontoffice.bookmark.user_bookmarks']} />
-    {isLoading
-      ? <TilesSkeleton animation={tilesAnimation} numberOfTiles={16} />
-      : <BookmarkItem
-        key={bookmark.id}
-        data={bookmark}
-      />}
-
-    <PrimaryButton
-      text={strings['frontoffice.bookmark.all_bookmarks']}
-      onClick={() => setShowAddBookmarkModal(true))}
-      alt={'strings['frontoffice.bookmark.add_bookmarks']'}
-      image={<FontAwesomeIcon icon={['fas', 'plus']} color="white" />}
-    />
-
-    <AddBookmarkModal
-      visible={showAddBookmarkModal}
-      onClose={() => setShowAddBookmarkModal(false)}
-      bookmarks={bookmarks}
-      onBookmarkAdd={addBookmarkToUser}
-    />
-  </div>
-}
+// ...
 ```
 
 ## The secret sauce
 
-Now comes where we'll definetely challenge how the component does its magic.
+Now comes where we'll challenge how the component does its magic.
