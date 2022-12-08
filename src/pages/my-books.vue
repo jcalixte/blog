@@ -1,8 +1,13 @@
+<page>
+title: My books
+</page>
+
 <template>
   <section>
     <h2>My books</h2>
 
-    <p>I used to read so little, but in 2021, I decided to take example of CGP Grey and add as one of my theme to read
+    <p>
+      I used to read so little, but in 2021, I decided to take example of CGP Grey and add as one of my theme to read
       more and write more.
     </p>
 
