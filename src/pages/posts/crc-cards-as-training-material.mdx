@@ -134,27 +134,11 @@ const newBookmark = await fetch(`/users/${user.id}/bookmarks`, {
 // ...
 ```
 
-Only the `user id` is necessary, why not just give the user id instead of the whole object? That will be our first simplification.
+Only the `user id` is necessary, why not just give the user id instead of the whole object? That will be our first simplification <OrderTag order={1} />.
+
+> We'll simplify at the very end, once we'll be finished with our CRC card.
 
 > Here is a classic responsibility leak I frequentely see. When you're developing a feature, you have the big picture but `UserBookmarks` and its local knowledge don't care about the user having a `user.address.line1` property.
-
-```tsx
-interface Props {
-  userId: number
-}
-
-export const UserBookmarks: FunctionComponent<Props> = ({ userId }) => {
-// ...
-      const userBookmark = await fetch(`/users/${userId}/bookmarks`, {
-        method: 'GET'
-      })
-// ...
-      const newBookmark = await fetch(`/users/${userId}/bookmarks`, {
-        method: 'POST',
-        body: JSON.stringify({ bookmark })
-      })
-// ...
-```
 
 ## The secret sauce
 
@@ -176,7 +160,7 @@ Without being a rule of thumb, I like to count how many `use` there are in the c
   responsabilities={[
     "Display user bookmarks",
     "fetching bookmarks",
-    "handling async processes",
+    "handling async processes (loading, error)",
     "handling add bookmark modal visibility",
   ]}
   collaborators={["Home.tsx"]}
@@ -184,7 +168,7 @@ Without being a rule of thumb, I like to count how many `use` there are in the c
 
 ### The ugly responsability
 
-The main problem I see in the `UserBookmarks` component is not about the component itself, it's more on one of its children: `TilesSkeleton`. It's doing a good job for the user experience but it's asking too much for the parent to be able to use it: `UserBookmarks` doesn't care about animating the skeleton.
+The main problem I see in the `UserBookmarks` component is not about the component itself, it's more on one of its children: `TilesSkeleton`. It's doing a good job for the user experience but it's asking too much for the parent to be able to use it: `UserBookmarks` doesn't care about animating the skeleton. <OrderTag order={2} />
 
 ```tsx
 const tilesAnimation = gsap.to({
@@ -203,14 +187,36 @@ const tilesAnimation = gsap.to({
   responsabilities={[
     "Display user bookmarks",
     "fetching bookmarks",
-    "handling async processes",
+    "handling async processes (loading, error)",
     "handling add bookmark modal visibility",
     "⚠️ Defining TilesSkeleton animation",
   ]}
   collaborators={["Home.tsx"]}
 />
 
-It must become
+## Simplification
+
+### <OrderTag order={1} /> only necessary property
+
+```tsx
+interface Props {
+  userId: number
+}
+
+export const UserBookmarks: FunctionComponent<Props> = ({ userId }) => {
+// ...
+      const userBookmark = await fetch(`/users/${userId}/bookmarks`, {
+        method: 'GET'
+      })
+// ...
+      const newBookmark = await fetch(`/users/${userId}/bookmarks`, {
+        method: 'POST',
+        body: JSON.stringify({ bookmark })
+      })
+// ...
+```
+
+### <OrderTag order={2} /> not responsible about the animation
 
 ```tsx
 // removing the magic number at the same time
