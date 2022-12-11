@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     JulienCalixte: typeof import('./src/components/core/julien-calixte.vue')['default']
     MyBooks: typeof import('./src/components/presentation/my-books.vue')['default']
     MyProjects: typeof import('./src/components/presentation/my-projects.vue')['default']
+    OrderTag: typeof import('./src/components/core/order-tag.vue')['default']
     ProductionFlow: typeof import('./src/components/flow/ProductionFlow.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
