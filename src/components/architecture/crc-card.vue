@@ -1,65 +1,111 @@
-<script setup lang="ts">import { ref } from 'vue';
+<script setup lang="ts">
+import { CrcCardEntity } from "@/modules/crc/entities/CrcCard"
+import { ref } from "vue"
 
 interface Props {
-  name: string,
+  name?: string
   responsabilities?: string[]
   collaborators?: string[]
   editable?: boolean
 }
 
+const emits = defineEmits<{
+  (e: "submit", crc: CrcCardEntity): void
+}>()
+
 const props = withDefaults(defineProps<Props>(), {
+  name: "",
   responsabilities: () => [],
   collaborators: () => [],
-  editable: false
+  editable: false,
 })
 
+const componentName = ref(props.name)
 const allReponsabilities = ref(props.responsabilities)
 
-const newResponsability = ref('')
+const newResponsability = ref("")
 
 const addResponsability = () => {
-  if (!newResponsability || allReponsabilities.value.find(resp => newResponsability.value === resp)) {
+  if (
+    !newResponsability ||
+    allReponsabilities.value.find((resp) => newResponsability.value === resp)
+  ) {
     return
   }
 
-  allReponsabilities.value = [...allReponsabilities.value, newResponsability.value]
+  allReponsabilities.value = [
+    ...allReponsabilities.value,
+    newResponsability.value,
+  ]
 
-  newResponsability.value = ''
+  newResponsability.value = ""
 }
 
 const allCollaborators = ref(props.collaborators)
 
-const newCollaborator = ref('')
+const newCollaborator = ref("")
 
 const addCollaborator = () => {
-  if (!newCollaborator || allCollaborators.value.find(coll => newCollaborator.value === coll)) {
+  if (
+    !newCollaborator ||
+    allCollaborators.value.find((coll) => newCollaborator.value === coll)
+  ) {
     return
   }
 
   allCollaborators.value = [...allCollaborators.value, newCollaborator.value]
 
-  newCollaborator.value = ''
+  newCollaborator.value = ""
+}
+
+const clearCard = () => {
+  componentName.value = ""
+  allReponsabilities.value = []
+  allCollaborators.value = []
+}
+
+const submitCard = () => {
+  emits("submit", {
+    name: componentName.value,
+    responsabilities: allReponsabilities.value,
+    collaborators: allCollaborators.value,
+  })
+  clearCard()
 }
 </script>
 
 <template>
   <div class="crc-card">
-    <h3 :contenteditable="editable">{{ name }}</h3>
+    <section>
+      <input
+        type="text"
+        class="component-name"
+        v-if="editable"
+        v-model="componentName"
+      />
+      <h3 v-else>
+        {{ componentName }}
+      </h3>
+      <button v-if="editable" @click="submitCard">create</button>
+    </section>
     <section>
       <div class="responsabilities">
-        <hr>
+        <hr />
         <ol>
-          <li v-for="responsability in allReponsabilities" :key="responsability">
+          <li
+            v-for="responsability in allReponsabilities"
+            :key="responsability"
+          >
             {{ responsability }}
           </li>
         </ol>
         <form @submit.prevent="addResponsability" v-if="editable">
-          <input type="text" v-model="newResponsability">
+          <input type="text" v-model="newResponsability" />
           <button type="submit">+</button>
         </form>
       </div>
       <div class="collaborators" v-if="collaborators.length || editable">
-        <hr>
+        <hr />
         <ol>
           <li v-for="collaborator in allCollaborators" :key="collaborator">
             {{ collaborator }}
@@ -67,7 +113,7 @@ const addCollaborator = () => {
         </ol>
 
         <form @submit.prevent="addCollaborator" v-if="editable">
-          <input type="text" v-model.trim="newCollaborator">
+          <input type="text" v-model.trim="newCollaborator" />
           <button type="submit">+</button>
         </form>
       </div>
@@ -112,11 +158,12 @@ const addCollaborator = () => {
       visibility: hidden;
     }
   }
+}
 
-  & [contenteditable] {
-    background-color: rgb(76, 71, 71);
-    padding: 0 0.5rem;
-    border-radius: 0.5rem;
-  }
+input.component-name {
+  background-color: rgb(76, 71, 71);
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
 }
 </style>
