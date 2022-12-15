@@ -13,6 +13,7 @@
   "devDependencies": {
     "@islands/headings": "^0.8.1",
     "@islands/prism": "^0.8.0",
+    "@islands/pwa": "^0.9.1",
     "iles": "^0.8.7",
     "sass": "^1.56.2",
     "typescript": "^4.9.4",
