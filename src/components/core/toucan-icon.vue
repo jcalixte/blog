@@ -1,5 +1,5 @@
 <template>
-  <img src="@/assets/icons/safari-pinned-tab.svg" alt="Toucan icon">
+  <img src="@/assets/icons/toucan.svg" alt="Toucan icon">
 </template>
 
 <style scoped>
