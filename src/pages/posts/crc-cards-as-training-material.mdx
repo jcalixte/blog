@@ -23,11 +23,11 @@ CRC cards are a great tool to focus the discussion and to aknowledge the fact th
 
 ## The horrible `UserBookmarks` component 😨
 
-Disclaimer: we're about to look at a very ugly code that is definetely doing too many things, (FYI it is a simplified version of a component in one of my project). The purpose of the discussion I have is to show to the tech lead that we really want to prevent this to happen and it is her mission to standardize it with her team.
+We're about to look at a very ugly code that is definetely doing too many things. The purpose of the discussion I have is to show to the tech lead that we really want to prevent this to happen and it is her mission to standardize it with her team.
 
 As the code does too many things, it can be hard to follow this post, but, I'll try my best to take you with me on this journey.
 
-Let's say we have a `UserBookmarks` component.
+Here is the `UserBookmarks` component:
 
 ```tsx
 interface Props {
@@ -196,7 +196,9 @@ const tilesAnimation = gsap.to({
 
 ## Simplification
 
-### <OrderTag order={1} /> only necessary property
+Once we said all that, let's relook our component.
+
+### <OrderTag order={1} /> only necessary prop
 
 ```tsx
 interface Props {
