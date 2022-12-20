@@ -97,6 +97,7 @@ const removeCard = () => {
         class="component-name"
         v-if="editable"
         v-model="componentName"
+        placeholder="name"
       />
       <h3 v-else>
         {{ componentName }}
@@ -118,7 +119,11 @@ const removeCard = () => {
           </li>
         </ol>
         <form @submit.prevent="addResponsability" v-if="editable">
-          <input type="text" v-model="newResponsability" />
+          <input
+            type="text"
+            v-model="newResponsability"
+            placeholder="responsability"
+          />
           <button type="submit">+</button>
         </form>
       </div>
@@ -131,7 +136,11 @@ const removeCard = () => {
         </ol>
 
         <form @submit.prevent="addCollaborator" v-if="editable">
-          <input type="text" v-model.trim="newCollaborator" />
+          <input
+            type="text"
+            v-model.trim="newCollaborator"
+            placeholder="collaborator"
+          />
           <button type="submit">+</button>
         </form>
       </div>
