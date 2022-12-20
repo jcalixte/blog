@@ -7,7 +7,7 @@ draft: true
 
 # CRC Cards as training material
 
-CRC Card: **C**lass name, **R**esponsibilities, **C**ollaborators.
+> CRC Card: **C**lass name, **R**esponsibilities, **C**ollaborators.
 
 [CRC Cards](https://en.wikipedia.org/wiki/Class-responsibility-collaboration_card) are a teaching tool on how to design software. They were proposed by [Kent Beck](https://www.kentbeck.com) and [Ward Cunningham](https://en.wikipedia.org/wiki/Ward_Cunningham), and, hell yeah it's useful.
 
@@ -136,15 +136,15 @@ const newBookmark = await fetch(`/users/${user.id}/bookmarks`, {
 
 Only the `user id` is necessary, why not just give the user id instead of the whole object? That will be our first simplification <OrderTag order={1} />.
 
-> We'll simplify at the very end, once we'll be finished with our CRC card.
+> ℹ️ We'll simplify at the very end, once we'll be finished with our CRC card.
 
-> Here is a classic responsibility leak I frequentely see. When you're developing a feature, you have the big picture but `UserBookmarks` and its local knowledge don't care about the user having a `user.address.line1` property.
+> ℹ️ Here is a classic responsibility leak I frequentely see. When you're developing a feature, you have the big picture but `UserBookmarks` and its local knowledge don't care about the user having a `user.address.line1` property.
 
 ## The secret sauce
 
 Now comes where we'll challenge how the component does its magic.
 
-### Tell me about your hooks, I'll tell you who you are
+### _"Tell me about your hooks, I'll tell you who you are"_
 
 Without being a rule of thumb, I like to count how many `use` there are in the component, it gives me good approximation about how many responsibilities lies.
 
@@ -160,7 +160,7 @@ Without being a rule of thumb, I like to count how many `use` there are in the c
   responsabilities={[
     "Display user bookmarks",
     "fetching bookmarks",
-    "handling async processes (loading, error)",
+    "handling async processes (loading and error state)",
     "handling add bookmark modal visibility",
   ]}
   collaborators={["Home.tsx"]}
@@ -216,7 +216,7 @@ export const UserBookmarks: FunctionComponent<Props> = ({ userId }) => {
 // ...
 ```
 
-### <OrderTag order={2} /> not responsible about the animation
+### <OrderTag order={2} /> not responsible of child's animation
 
 ```tsx
 // removing the magic number at the same time

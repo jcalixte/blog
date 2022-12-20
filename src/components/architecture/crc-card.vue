@@ -7,10 +7,12 @@ interface Props {
   responsabilities?: string[]
   collaborators?: string[]
   editable?: boolean
+  isPlayground?: boolean
 }
 
 const emits = defineEmits<{
   (e: "submit", crc: CrcCardEntity): void
+  (e: "remove", crcName: string): void
 }>()
 
 const props = withDefaults(defineProps<Props>(), {
@@ -18,6 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
   responsabilities: () => [],
   collaborators: () => [],
   editable: false,
+  isPlayground: false,
 })
 
 const componentName = ref(props.name)
@@ -65,12 +68,24 @@ const clearCard = () => {
 }
 
 const submitCard = () => {
+  if (!componentName.value) {
+    return
+  }
+
   emits("submit", {
     name: componentName.value,
     responsabilities: allReponsabilities.value,
     collaborators: allCollaborators.value,
   })
   clearCard()
+}
+
+const removeCard = () => {
+  if (!componentName.value) {
+    return
+  }
+
+  emits("remove", componentName.value)
 }
 </script>
 
@@ -86,7 +101,10 @@ const submitCard = () => {
       <h3 v-else>
         {{ componentName }}
       </h3>
-      <button v-if="editable" @click="submitCard">create</button>
+      <button v-if="editable" :disabled="!componentName" @click="submitCard">
+        create
+      </button>
+      <button @click="removeCard" v-else-if="isPlayground">×</button>
     </section>
     <section>
       <div class="responsabilities">

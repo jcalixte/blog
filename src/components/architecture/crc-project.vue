@@ -7,6 +7,9 @@ const crcCards = ref<CrcCardEntity[]>([])
 const addCrcCard = (card: CrcCardEntity) => {
   crcCards.value = [...crcCards.value, card]
 }
+const removeCard = (cardName: string) => {
+  crcCards.value = crcCards.value.filter((card) => card.name !== cardName)
+}
 </script>
 
 <template>
@@ -19,6 +22,8 @@ const addCrcCard = (card: CrcCardEntity) => {
         :name="card.name"
         :responsabilities="card.responsabilities"
         :collaborators="card.collaborators"
+        @remove="removeCard"
+        is-playground
       />
     </section>
   </div>
