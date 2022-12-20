@@ -142,11 +142,12 @@ const removeCard = () => {
 <style scoped lang="scss">
 .crc-card {
   min-height: 200px;
-  background-color: #561b00;
+  background-color: var(--vt-c-black-mute);
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 0.3em;
   font-family: var(--code-font-family);
+  box-shadow: var(--shadow);
 
   hr {
     margin-bottom: 1rem;
@@ -164,7 +165,7 @@ const removeCard = () => {
 
   .responsabilities {
     hr {
-      margin: 0 1rem;
+      margin-right: 1rem;
     }
   }
 
@@ -179,9 +180,6 @@ const removeCard = () => {
 }
 
 input.component-name {
-  background-color: rgb(76, 71, 71);
-  padding: 0 0.5rem;
-  border-radius: 0.5rem;
-  color: white;
+  margin-bottom: 0.5rem;
 }
 </style>
