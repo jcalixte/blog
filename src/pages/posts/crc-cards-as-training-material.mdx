@@ -216,19 +216,6 @@ Let's display the responsabilities that doesn't quite respect the definition.
   collaborators={["Home.tsx"]}
 />
 
-And here its final CRC Card:
-
-<CrcCard
-  name="UserBookmarks"
-  responsabilities={[
-    "Retrieve bookmarks",
-    "handling async processes (loading, error)",
-    "display user bookmarks",
-    "display 'add bookmark' button",
-  ]}
-  collaborators={["Home.tsx"]}
-/>
-
 ## Simplification
 
 Once we said all that, let's relook our component: less responsability and less hooks.
@@ -299,9 +286,31 @@ export const UserBookmarks: FunctionComponent<Props> = ({ user }) => {
 }
 ```
 
+And here its final CRC Card:
+
+<CrcCard
+  name="UserBookmarks"
+  responsabilities={[
+    "Retrieve bookmarks",
+    "handling async processes (loading, error)",
+    "display user bookmarks",
+    "display 'add bookmark' button",
+  ]}
+  collaborators={[
+    "Home.tsx",
+    "Title",
+    "ErrorMessage",
+    "useUserBookmarksQuery",
+    "Bookmarks",
+    "AddBookmarkButton",
+  ]}
+/>
+
 ## Final thought
 
-What a
+What a cleanup! Looks like `UserBookmarks` does not do anything at all and delegate everything as there are more collaborators now!
+
+That's the goal, delegation is for me underrated, we tend to extend too easily existing files instead of creating new files with clear responsability. Now I'm pretty sure what I'll encounter on the `useUserBookmarksQuery`, `TilesSkeleton`, `Bookmarks` and `AddBookmarkButton` and if I need to specify a new prop coming from the user to display bookmarks, for instance has the user's authorization to add bookmark? I know where I'll start: `UserBookmarks`.
 
 ## Playground
 
