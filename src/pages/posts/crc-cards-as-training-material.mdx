@@ -1,7 +1,7 @@
 ---
 title: CRC Cards as training material
 layout: post
-date: 2022-12-03
+date: 2022-12-24
 draft: true
 ---
 
@@ -81,10 +81,7 @@ export const UserBookmarks: FunctionComponent<Props> = ({ user }) => {
     <Title title={i18n('bookmark.user_bookmarks')} />
     {isLoading
       ? <TilesSkeleton animation={tilesAnimation} numberOfTiles={16} />
-      : <BookmarkItem
-          key={bookmark.id}
-          data={bookmark}
-        />}
+      : <Bookmarks data={bookmarks} />}
 
     <PrimaryButton
       text={i18n('bookmark.add_bookmark')}
@@ -134,7 +131,7 @@ const newBookmark = await fetch(`/users/${user.id}/bookmarks`, {
 // ...
 ```
 
-Only the `user id` is necessary, why not just give the user id instead of the whole object? That will be our first simplification <OrderTag order={1} />.
+Only the `user id` is necessary, why not just give the user id instead of the whole object? That will be our first simplification .
 
 > ℹ️ We'll simplify at the very end, once we'll be finished with our CRC card.
 
@@ -161,14 +158,15 @@ Without being a rule of thumb, I like to count how many `use` there are in the c
     "Display user bookmarks",
     "fetching bookmarks",
     "handling async processes (loading and error state)",
-    "handling add bookmark modal visibility",
+    "display 'add bookmark' button",
+    "handling 'add bookmark' modal visibility",
   ]}
   collaborators={["Home.tsx"]}
 />
 
 ### The ugly responsability
 
-The main problem I see in the `UserBookmarks` component is not about the component itself, it's more on one of its children: `TilesSkeleton`. It's doing a good job for the user experience but it's asking too much for the parent to be able to use it: `UserBookmarks` doesn't care about animating the skeleton. <OrderTag order={2} />
+The main problem I see in the `UserBookmarks` component is not about the component itself, it's more on one of its children: `TilesSkeleton`. It's doing a good job for the user experience but it's asking too much for the parent to be able to use it: `UserBookmarks` doesn't care about animating the skeleton.
 
 ```tsx
 const tilesAnimation = gsap.to({
@@ -188,17 +186,54 @@ const tilesAnimation = gsap.to({
     "Display user bookmarks",
     "fetching bookmarks",
     "handling async processes (loading, error)",
-    "handling add bookmark modal visibility",
+    "display 'add bookmark' button",
+    "handling 'add bookmark' modal visibility",
+    "Defining TilesSkeleton animation",
+  ]}
+  collaborators={["Home.tsx"]}
+/>
+
+## What do we keep?
+
+Now that we listed the responsabilities, it is time to know what do we want to keep by defining the main responsability of the `UserBookmarks` in one and sentence.
+
+> `UserBookmarks` retrieve and handle the _user_ bookmarks with an additional button to add it.
+
+That's it. Having a simple sentence defining what's the component does is the purpose of this exercice. Definetely difficult when we first read it, it is now a pretty concise and acceptable responsability we want `UserBookmarks` to have.
+
+Let's display the responsabilities that doesn't quite respect the definition.
+
+<CrcCard
+  name="UserBookmarks"
+  responsabilities={[
+    "Display user bookmarks",
+    "~ fetching bookmarks",
+    "handling async processes (loading, error)",
+    "display 'add bookmark' button",
+    "⚠️ handling 'add bookmark' modal visibility",
     "⚠️ Defining TilesSkeleton animation",
+  ]}
+  collaborators={["Home.tsx"]}
+/>
+
+And here its final CRC Card:
+
+<CrcCard
+  name="UserBookmarks"
+  responsabilities={[
+    "Retrieve bookmarks",
+    "handling async processes (loading, error)",
+    "display user bookmarks",
+    "display 'add bookmark' button",
   ]}
   collaborators={["Home.tsx"]}
 />
 
 ## Simplification
 
-Once we said all that, let's relook our component.
+Once we said all that, let's relook our component: less responsability and less hooks.
 
-### <OrderTag order={1} /> only necessary prop
+### Has only necessary prop
 
 ```tsx
 interface Props {
@@ -218,12 +253,55 @@ export const UserBookmarks: FunctionComponent<Props> = ({ userId }) => {
 // ...
 ```
 
-### <OrderTag order={2} /> not responsible of child's animation
+### Is not responsible of child's animation
 
 ```tsx
 // removing the magic number at the same time
 <TilesSkeleton numberOfTiles={MAXIMUM_BOOKMARKS} />
 ```
+
+### Does not fetch itself user bookmarks
+
+```tsx
+// ...
+const { bookmarks, refetch, isLoading, error } = useUserBookmarksQuery({
+  userId,
+})
+// ...
+```
+
+### Does not handle `AddBookmark` modal
+
+Here we only remove code
+
+## The final version
+
+```tsx
+interface Props {
+  user: User
+}
+
+export const UserBookmarks: FunctionComponent<Props> = ({ user }) => {
+  const { bookmarks, refetch, isLoading, error } = useUserBookmarksQuery({
+    userId,
+  })
+
+  return <div className="user-bookmarks">
+    <Title title={i18n('bookmark.user_bookmarks')} />
+    {isError
+      ? <ErrorMessage>An error occured</ErrorMessage>
+      : isLoading
+      ? <TilesSkeleton numberOfTiles={16} />
+      : <Bookmarks bookmarks={bookmarks} />}
+
+    <AddBookmarkButton onNewBookmark={() => refetch())} />
+  </div>
+}
+```
+
+## Final thought
+
+What a
 
 ## Playground
 
