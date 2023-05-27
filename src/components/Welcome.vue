@@ -10,10 +10,7 @@
 
     <h3>My books</h3>
 
-    <p>
-      I'm glad to share you <a href="/my-books">the books</a> I'm currently reading.
-    </p>
-
+    <p><a href="/my-books">The books</a> I'm currently reading.</p>
   </section>
 </template>
 
