@@ -9,8 +9,9 @@ const store = useProductionFlow()
   <section class="production-flow">
     <add-step />
     <ul>
-      <li :key="step.name" v-for="step in store.$state.steps">
-        {{ step.name }}
+      <li :key="team.name" v-for="team in store.$state.teams">
+        {{ team.name }}
+        <button @click="store.removeTeam(team.id)">❌</button>
       </li>
     </ul>
   </section>
