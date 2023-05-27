@@ -7,7 +7,7 @@ const store = useProductionFlow();
 
 <template>
   <section class="production-flow">
-    <add-flow />
+    <add-step />
     <ul>
       <li :key="step.name" v-for="step in store.$state.steps">
         {{ step.name }}

@@ -1,7 +1,7 @@
 import { pinia } from "@/store/store"
 import { defineStore } from "pinia"
 
-interface Step {
+interface Team {
   name: string
   intention: string
   responsible: string
@@ -10,11 +10,11 @@ interface Step {
 }
 
 interface State {
-  steps: Step[]
+  teams: Team[]
 }
 
 const initialState: State = {
-  steps: [
+  teams: [
     {
       name: "In production",
       intention: "Deliver feature to the user",
@@ -28,8 +28,8 @@ const initialState: State = {
 const useStore = defineStore("production-flow", {
   state: () => ({ ...initialState }),
   actions: {
-    addStep(step: Step) {
-      this.$state.steps = [step, ...this.$state.steps]
+    addTeam(team: Team) {
+      this.$state.teams = [team, ...this.$state.teams]
     },
   },
 })
