@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useProductionFlow } from "@/modules/flow/store/useProductionFlow.store";
-import AddFlow from "@/modules/flow/components/AddFlow.vue";
+import { useProductionFlow } from "@/modules/flow/store/useProductionFlow.store"
+import AddStep from "@/modules/flow/components/AddStep.vue"
 
-const store = useProductionFlow();
+const store = useProductionFlow()
 </script>
 
 <template>
@@ -20,7 +20,18 @@ const store = useProductionFlow();
 .production-flow {
   ul {
     display: flex;
-    justify-content: space-around;
+    gap: 1rem;
+    overflow-x: auto;
+    border: 2px solid rgb(69, 90, 85);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    min-height: 400px;
+
+    li {
+      min-width: 150px;
+      list-style-type: none;
+    }
   }
 }
 </style>
