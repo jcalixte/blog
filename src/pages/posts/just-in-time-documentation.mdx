@@ -1,0 +1,63 @@
+---
+title: Just in time documentation is the right documentation
+illustration: https://cdn.jsdelivr.net/gh/jcalixte/static@master/doc-jit/doc-jit-cover.png
+layout: post
+date: 2023-05-29
+---
+
+# Just in time documentation is the right documentation
+
+## Falling over the same trap again and again
+
+Many times a problem occurs where new developers fall over the same trap again and again despite the fact that the solution has been well documented. How can it be their fault? They didn't even know the documentation existed!
+
+The eternal question of "do we write documentation for our project?"... But if no one read it when it needs to, the documentation becomes waste.
+
+## Just in time
+
+_Just in time_ (`jit`) is a lean concept: the goal for a team is to produce the right amount of value when the client needs it. No less no more.
+
+So I created a VS Code extension doing exactly that: [doc-jit](https://marketplace.visualstudio.com/items?itemName=jcalixte.doc-jit). It provides the right amount of knowledge the exact moment the developper needs it: _just in time documentation_. 🤎
+
+## How does it work?
+
+You set glob patterns that is affiliated with a documentation file and [doc-jit](https://marketplace.visualstudio.com/items?itemName=jcalixte.doc-jit) will propose you when your active file matches at least one of them.
+
+```json
+// .doc-jitrc.json
+{
+  "patterns": {
+    "**/*.test.ts, **/*.test.tsx": [
+      {
+        "label": "Jest documentation",
+        "uri": "https://jestjs.io/docs/getting-started"
+      },
+      {
+        "label": "Vitest documentation",
+        "uri": "https://vitest.dev/guide/"
+      }
+    ],
+    "**/*.test.tsx": [
+      {
+        "label": "React Native testing library documentation",
+        "uri": "https://callstack.github.io/react-native-testing-library/docs/getting-started"
+      }
+    ]
+  }
+}
+```
+
+In real life, it looks like this:
+
+<video controls autoplay loop preload="none" playsinline muted>
+  <source
+    src="https://cdn.jsdelivr.net/gh/jcalixte/static@main/doc-jit/docjit-tuto.webm"
+    type="video/webm"
+  />
+  <source
+    src="https://cdn.jsdelivr.net/gh/jcalixte/static@main/doc-jit/docjit-tuto.mp4"
+    type="video/mp4"
+  />
+</video>
+
+It's that simple and you can start with ease. For example, just your dependencies first, it's surprisingly powerful. Then add your own documentation, standards, tutorial, videos, etc. One problem solving at a time. Just in time. 😊
