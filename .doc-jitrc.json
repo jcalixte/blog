@@ -1,0 +1,10 @@
+{
+  "patterns": {
+    "iles.config.ts, **/*.mdx": [
+      {
+        "label": "Îles documentation",
+        "uri": "https://iles.pages.dev/guide/introduction"
+      }
+    ]
+  }
+}
