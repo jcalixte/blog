@@ -31,23 +31,23 @@
 
       <li>
         <a
+          href="https://marketplace.visualstudio.com/items?itemName=jcalixte.doc-jit"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Doc-JIT</a
+        >: <i>just in time</i> documentation. It displays the right
+        documentation when you need it. Doc-JIT is a VS Code extension for
+        developers to open the most relevant documentation when coding features.
+      </li>
+
+      <li>
+        <a
           href="https://www.npmjs.com/package/vue-pwa-asset-generator"
           target="_blank"
           rel="noopener noreferrer"
           >Vue PWA Asset generator</a
         >: a cli command (now a bit out of date) that generates the multiple
         favicons needed for a Progressive Web App.
-      </li>
-
-      <li>
-        <a
-          href="https://marketplace.visualstudio.com/items?itemName=jcalixte.doc-jit"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Doc-JIT</a
-        >: <i>just in time</i> documentation. It displays the right
-        documentation when you need it. Doc-JIT is an VS Code extension
-        developers to open the most relevant documentation when coding features.
       </li>
     </ul>
   </section>
