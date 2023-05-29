@@ -2,22 +2,15 @@
 defineProps<{
   id: string
   label: string
-  modelValue: string
 }>()
-defineEmits<{
-  (event: "update:modelValue", value: string): void
-}>()
+
+const modelValue = defineModel<string>()
 </script>
 
 <template>
   <div class="form-input">
     <label :for="id">{{ label }}</label>
-    <input
-      type="text"
-      id="id"
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target?.value ?? '')"
-    />
+    <input type="text" id="id" v-model="modelValue" />
   </div>
 </template>
 

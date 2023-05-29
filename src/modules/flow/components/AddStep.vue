@@ -8,7 +8,7 @@ const newTeam = ref("")
 
 const addTeam = () => {
   store.addTeam({
-    name: "User Acceptance Testing",
+    name: newTeam.value,
     outputs: ["Go for live"],
     prerequisites: ["new app version is step in staging environment"],
     intention:
