@@ -4,9 +4,14 @@ const { frontmatter } = usePage()
 
 <template>
   <div class="post">
-    <app-header />
+    <app-header class="header-post" />
 
-    <img id="main-illustration" v-if="frontmatter.illustration" :src="frontmatter.illustration" alt="Main illustration">
+    <img
+      id="main-illustration"
+      v-if="frontmatter.illustration"
+      :src="frontmatter.illustration"
+      alt="Main illustration"
+    />
 
     <article id="main-article">
       <slot />
@@ -45,9 +50,12 @@ h7 {
 }
 
 img {
-  width: 100%;
-  max-height: 40vh;
+  max-width: 100%;
   display: flex;
   margin: auto;
+}
+
+.header-post {
+  float: left;
 }
 </style>
