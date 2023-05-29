@@ -4,6 +4,11 @@ import pwa from "@islands/pwa"
 
 export default defineConfig({
   siteUrl: "https://juliencalixte.eu",
+  vue: {
+    script: {
+      defineModel: true,
+    },
+  },
   modules: [
     "@islands/headings",
     prism(),

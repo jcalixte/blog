@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     CrcProject: typeof import('./src/components/architecture/crc-project.vue')['default']
     ForgettingCurve: typeof import('./src/components/smart-notes/forgetting-curve.vue')['default']
     FormInput: typeof import('./src/components/design-system/form/FormInput.vue')['default']
+    Island: typeof import('./node_modules/.pnpm/iles@0.9.5_rollup@2.79.1_sass@1.62.1/node_modules/iles/dist/client/app/components/Island.vue')['default']
     JulienCalixte: typeof import('./src/components/core/julien-calixte.vue')['default']
     MyProjects: typeof import('./src/components/presentation/my-projects.vue')['default']
     OrderTag: typeof import('./src/components/core/order-tag.vue')['default']
