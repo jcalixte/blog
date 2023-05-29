@@ -11,6 +11,7 @@ const store = useProductionFlow()
     <ul>
       <li :key="team.name" v-for="team in store.$state.teams">
         {{ team.name }}
+        <p>{{ team.intention }}</p>
         <button @click="store.removeTeam(team.id)">❌</button>
       </li>
     </ul>
