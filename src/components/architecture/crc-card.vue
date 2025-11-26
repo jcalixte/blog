@@ -151,7 +151,6 @@ const removeCard = () => {
 <style scoped lang="scss">
 .crc-card {
   min-height: 200px;
-  background-color: var(--vt-c-black-mute);
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 0.3em;

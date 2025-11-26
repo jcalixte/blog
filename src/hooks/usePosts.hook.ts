@@ -14,7 +14,7 @@ const byMostRecentFirst = (a: Post, b: Post) => {
 }
 
 export const usePosts = () => {
-  const posts = $(useDocuments<Post>("@/pages/posts"))
+  const posts = useDocuments<Post>("@/pages/posts")
 
-  return computed(() => posts.sort(byMostRecentFirst))
+  return computed(() => posts.value.sort(byMostRecentFirst))
 }
