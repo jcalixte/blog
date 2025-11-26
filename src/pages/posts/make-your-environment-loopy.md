@@ -1,6 +1,6 @@
 ---
 title: Developers, make your environment loopy 🔁
-illustration: https://res.cloudinary.com/practicaldev/image/fetch/s--ydCtwTyU--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3ui6knf741v61hk66r9p.png
+illustration: https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3ui6knf741v61hk66r9p.png
 layout: post
 date: 2022-03-13
 ---
