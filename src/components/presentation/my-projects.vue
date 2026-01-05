@@ -4,6 +4,18 @@
 
     <ul>
       <li>
+        <a href="https://thinking-people-system.house/"
+          >Thinking People System</a
+        >
+        is a website with exploration in mind. The TPS is a framework to satisfy
+        the client with the growth of people making the product. I still have to
+        understand it - in the process, I make explorable article about the
+        concepts like
+        <a href="https://thinking-people-system.house/pull-system"
+          >the Pull System</a
+        >.
+      </li>
+      <li>
         <a
           href="https://litenote.space/"
           target="_blank"
