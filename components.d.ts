@@ -14,6 +14,7 @@ declare module 'vue' {
     CrcProject: typeof import('./src/components/architecture/crc-project.vue')['default']
     ForgettingCurve: typeof import('./src/components/smart-notes/forgetting-curve.vue')['default']
     FormInput: typeof import('./src/components/design-system/form/FormInput.vue')['default']
+    Island: typeof import('./node_modules/.pnpm/iles@0.10.0-beta.1_@babel+parser@7.28.5_@types+node@24.10.1_rollup@2.79.2_sass@1.97.1_terser@5.44.1_typescript@5.9.3/node_modules/iles/dist/client/app/components/Island.vue')['default']
     JulienCalixte: typeof import('./src/components/core/julien-calixte.vue')['default']
     MyProjects: typeof import('./src/components/presentation/my-projects.vue')['default']
     OrderTag: typeof import('./src/components/core/order-tag.vue')['default']
