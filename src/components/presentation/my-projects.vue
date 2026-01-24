@@ -4,14 +4,29 @@
 
     <ul>
       <li>
-        <a href="https://thinking-people-system.house/"
+        <a
+          href="https://failwell.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Fail Well</a
+        >: a tool designed to help developers and knowledge workers understand
+        the gap between their expectations and reality.
+      </li>
+      <li>
+        <a
+          href="https://thinking-people-system.house/"
+          target="_blank"
+          rel="noopener noreferrer"
           >Thinking People System</a
         >
         is a website with exploration in mind. The TPS is a framework to satisfy
         the client with the growth of people making the product. I still have to
         understand it - in the process, I make explorable article about the
         concepts like
-        <a href="https://thinking-people-system.house/pull-system"
+        <a
+          href="https://thinking-people-system.house/pull-system"
+          target="_blank"
+          rel="noopener noreferrer"
           >the Pull System</a
         >.
       </li>
