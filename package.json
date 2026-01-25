@@ -15,12 +15,12 @@
     "@islands/prism": "^0.10.0-beta.1",
     "@islands/pwa": "^0.10.0-beta.1",
     "iles": "^0.10.0-beta.1",
-    "prettier": "^3.7.4",
-    "sass": "^1.97.1",
+    "prettier": "^3.8.1",
+    "sass": "^1.97.3",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.16",
-    "vue": "^3.5.26",
-    "vue-tsc": "^3.2.2"
+    "vitest": "^4.0.18",
+    "vue": "^3.5.27",
+    "vue-tsc": "^3.2.3"
   },
   "dependencies": {
     "chart.xkcd": "^1.1.15",
