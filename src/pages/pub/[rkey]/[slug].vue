@@ -30,7 +30,9 @@ const textContent = computed(() => marked.parse(props.note.textContent))
     <h1>{{ note.title }}</h1>
     <p class="remanso-note">
       This is the raw version of the article. To get the rich content, get to my
-      <a :href="note.canonicalUrl">Remanso space</a>.
+      <a :href="note.canonicalUrl" target="_blank" rel="noopener noreferrer"
+        >Remanso space</a
+      >.
     </p>
     <article v-html="textContent"></article>
   </pub-layout>
