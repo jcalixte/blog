@@ -3,10 +3,19 @@ import prism from "@islands/prism"
 import pwa from "@islands/pwa"
 
 export default defineConfig({
-  siteUrl: "https://juliencalixte.eu",
+  siteUrl: "https://apoena.dev",
   vue: {
     script: {
       defineModel: true,
+    },
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: "modern-compiler",
+        },
+      },
     },
   },
   modules: [
@@ -15,8 +24,8 @@ export default defineConfig({
     pwa({
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
       manifest: {
-        name: "Julien Calixte",
-        short_name: "julienc",
+        name: "Apoena.dev",
+        short_name: "apoenadev",
         description: "Julien Calixte's blog",
         theme_color: "#fda7df",
         icons: [
