@@ -11,7 +11,7 @@ export default defineApp({
       link: [
         {
           rel: "stylesheet",
-          href: "https://api.fonts.coollabs.io/css2?family=Noto+Serif+Display&family=Meow+Script&family=Oxygen+Mono&display=swap",
+          href: "https://api.fonts.coollabs.io/css2?family=Cascadia+Mono&family=Meow+Script&family=Oxygen+Mono&display=swap",
         },
       ],
     }

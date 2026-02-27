@@ -4,6 +4,8 @@
   <section class="welcome">
     <about-me />
 
+    <blog-notes />
+
     <blog-posts />
 
     <my-projects />

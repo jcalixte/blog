@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AboutMe: typeof import('./src/components/presentation/about-me.vue')['default']
     AppHeader: typeof import('./src/components/app-header.vue')['default']
+    BlogNotes: typeof import('./src/components/notes/blog-notes.vue')['default']
     BlogPosts: typeof import('./src/components/posts/blog-posts.vue')['default']
     CrcCard: typeof import('./src/components/architecture/crc-card.vue')['default']
     CrcProject: typeof import('./src/components/architecture/crc-project.vue')['default']
@@ -19,6 +20,7 @@ declare module 'vue' {
     MyProjects: typeof import('./src/components/presentation/my-projects.vue')['default']
     OrderTag: typeof import('./src/components/core/order-tag.vue')['default']
     ProductionFlow: typeof import('./src/components/flow/ProductionFlow.vue')['default']
+    PubLayout: typeof import('./src/components/pub-layout.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ToucanIcon: typeof import('./src/components/core/toucan-icon.vue')['default']
