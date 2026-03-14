@@ -19,10 +19,13 @@ export default definePageComponent({
 <script setup lang="ts">
 import type { Note } from "~/api/note.type"
 import { marked } from "marked"
-import { computed } from "vue"
 
 const props = defineProps<{ note: Note }>()
-const textContent = computed(() => marked.parse(props.note.textContent))
+const textContent = marked.parse(props.note.textContent)
+
+useHead({
+  title: props.note.title,
+})
 </script>
 
 <template>
