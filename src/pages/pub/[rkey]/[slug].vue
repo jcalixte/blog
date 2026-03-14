@@ -18,10 +18,10 @@ export default definePageComponent({
 
 <script setup lang="ts">
 import type { Note } from "~/api/note.type"
-import { marked } from "marked"
+import { renderToHtml } from "md4x"
 
 const props = defineProps<{ note: Note }>()
-const textContent = marked.parse(props.note.textContent)
+const textContent = renderToHtml(props.note.textContent)
 
 useHead({
   title: props.note.title,
