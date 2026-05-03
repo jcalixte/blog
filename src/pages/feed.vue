@@ -7,9 +7,7 @@ import RenderFeed from "@islands/feed"
 import type { FeedOptions, FeedItem } from "@islands/feed"
 import { fetchNotes } from "~/api/fetch-notes"
 
-const { site } = usePage()
-
-const url = site.url
+const url = "https://apoena.dev"
 
 const options: FeedOptions = {
   title: "Apoena's distracted mind",
