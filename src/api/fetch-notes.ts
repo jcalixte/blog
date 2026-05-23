@@ -34,5 +34,8 @@ export const fetchNotes = async (): Promise<Note[]> => {
     limit: 50,
   })
 
-  return (records || []).map((record) => record.value)
+  const notes = (records || []).map((record) => record.value as Note)
+  return notes.sort((a, b) =>
+    a.publishedAt < b.publishedAt ? 1 : a.publishedAt > b.publishedAt ? -1 : 0,
+  )
 }
