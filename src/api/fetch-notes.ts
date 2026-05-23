@@ -8,7 +8,7 @@ export const getServiceEndpoint = async () => {
   if (serviceEndpoint) {
     return serviceEndpoint
   }
-  const response = await fetch(`https://plc.wtf/${did}`)
+  const response = await fetch(`https://plc.directory/${did}`)
   const {
     service: [{ serviceEndpoint: endpoint }],
   } = await response.json()
